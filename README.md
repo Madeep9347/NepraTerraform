@@ -9,7 +9,7 @@ terraform plan
 terraform apply
 
 
-## Make sure that the s3 bucket and  dynamo table is created was already created
+## Make sure that the s3 bucket and dynamo table was  created
 
 # NOTE:
 create the dynamo db table with lock = LockID  then only terraform state locking is applicable
