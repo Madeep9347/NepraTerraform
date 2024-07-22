@@ -16,17 +16,17 @@ resource "aws_security_group" "private_sg" {
   }
 
   ingress {
-    from_port   = 5000
-    to_port     = 5000
-    protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"]
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    security_groups  = [aws_security_group.bastion_sg.id]
   }
 
   ingress {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    security_groups  = [aws_security_group.bastion_sg.id]
+    security_groups  = [aws_security_group.jenkins_sg.id]
   }
 
   egress {
@@ -59,12 +59,14 @@ resource "aws_security_group" "jenkins_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   ingress {
     from_port   = 465
     to_port     = 465
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   ingress {
     from_port   = 8080
     to_port     = 8080
