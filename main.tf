@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 terraform {
@@ -28,8 +28,8 @@ module "instances" {
   private_sg_id     = module.security_groups.private_sg_id
   bastion_sg_id     = module.security_groups.bastion_sg_id
   jenkins_sg_id     = module.security_groups.jenkins_sg_id
-  key_name          = "madeep"
-  ami_id               = "ami-04a81a99f5ec58529"
+  key_name          = "nepra"
+  ami_id               = "ami-0ad21ae1d0696ad58"
   instance_type     = "t2.micro"
 }
 

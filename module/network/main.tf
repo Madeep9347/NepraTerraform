@@ -5,21 +5,21 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "public_1" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_subnet_1_cidr
-  availability_zone       = "us-east-1a"
+  availability_zone       = "ap-south-1a"
   map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "public_2" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_subnet_2_cidr
-  availability_zone       = "us-east-1b"
+  availability_zone       = "ap-south-1b"
   map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "private" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = var.private_subnet_cidr
-  availability_zone = "us-east-1a"
+  availability_zone = "ap-south-1a"
 }
 
 resource "aws_internet_gateway" "gw" {
